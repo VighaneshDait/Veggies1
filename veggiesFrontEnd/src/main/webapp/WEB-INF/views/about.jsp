@@ -7,7 +7,7 @@
 			 <h2 class="top">Typography</h2>
 			<div class="headdings">
 				<h3 class="ghj">Headings</h3>
-					<div class="bs-example">
+					   <div class="bs-example">
 						<table class="table">
 						  <tbody>
 							<tr>

@@ -2,76 +2,100 @@ package com.vighanesh.veggiesbackend.daoimpl;
 
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import com.vighanesh.veggiesbackend.dao.CategoryDAO;
 import com.vighanesh.veggiesbackend.dto.Category;
 
 
 
 @Repository("categoryDAO")
+@Transactional
 public class CategoryDAOImpl implements CategoryDAO {
 
-	private static List<Category> categories=new ArrayList<>();
-	
-	static{
-		
-		Category category=new Category();
-		
-		//Adding first category
-		category.setId(1);
-		category.setName("Vegitables1");
-		category.setDescription("This is some description for Vegitables1");
-		category.setImageURL("Cat_1.png");
-		
-		
-		categories.add(category);
-		
-		//Second category
-		
-        category=new Category();
-		
-		//Adding first category
-		category.setId(2);
-		category.setName("Vegitables2");
-		category.setDescription("This is some description for Vegitables2");
-		category.setImageURL("Cat_2.png");
-		
-		categories.add(category);
-		
-		//Third category
-		
-        category=new Category();
-		
-		//Adding first category
-		category.setId(3);
-		category.setName("Vegitables3");
-		category.setDescription("This is some description for Vegitables3");
-		category.setImageURL("Cat_3.png");
-		
-		categories.add(category);
-		
-	}
+	@Autowired
+	private SessionFactory sessionFactory;
 	
 	
 	@Override
 	public List<Category> list() {
-		// TODO Auto-generated method stub
-		return categories;
+		
+		String selectActiveCategory = "FROM Category WHERE active = :active";
+		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
+		
+		query.setParameter("active", true);
+		
+		return query.getResultList();
 	}
-
+/**
+ * Getting single category based on id 
+ */
 
 	@Override
 	public Category get(int id) {
 		
-		//enhanced for loop
-		for(Category category:categories){
-			
-			if(category.getId()== id) return category;
-		}
+		 
+		return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(id));
 		
-		return null;
+	}
+
+
+	@Override
+	public boolean add(Category category) {
+		
+		try{
+			//Add the category to the database table.
+			
+			  sessionFactory.getCurrentSession().persist(category);
+			
+			return true;
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}
+
+	}
+
+   /**
+    *  	Updating a single category
+    */
+	@Override
+	public boolean update(Category category) {
+		try{
+			//Add the category to the database table.
+			
+			  sessionFactory.getCurrentSession().update(category);
+			
+			return true;
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}
+	}
+
+
+	@Override
+	public boolean delete(Category category) {
+	
+		category.setActive(false);
+		
+		try{
+			//Add the category to the database table.
+			
+			  sessionFactory.getCurrentSession().update(category);
+			
+			return true;
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}
 		
 	}
 

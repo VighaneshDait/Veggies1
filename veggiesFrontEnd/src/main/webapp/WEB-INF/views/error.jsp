@@ -5,28 +5,9 @@
 <spring:url var="css" value="/resources/css" />
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
-<c:set var="contextRoot" value="${pageContext.request.contextPath}" />   
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--A Design by W3layouts 
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!--<!DOCTYPE html>-->
 <html>
 <head>
 <title>Online Veggies Shop- ${title} </title>
-
-<script>
-   window.menu='${title}';
-   
-   window.contextRoot = '${contextRoot}'
-   
-
-   window.categoryId = '${category.id}';
-   
-</script>
 <link href="${css}/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- Custom Theme files -->
 <!--theme style-->
@@ -51,74 +32,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- /start menu -->
 </head>
 <body> 
-<!--header-->	
-<script src="${js}/responsiveslides.min.js"></script>
-<!--<script>  
-    $(function () {
-      $("#slider").responsiveSlides({
-      	auto: true,
-      	nav: true,
-      	speed: 500,
-        namespace: "callbacks",
-        pager: false,
-      });
-    });
-  </script>
- -->
- 
  <!-- header code -->
 
  <%@include file="./header.jsp" %>
-
-
-
-
-  
-<!-- Home page content-->
-<c:if test="${userClickHome == true }">
-<%@include file="./home.jsp" %> 
-</c:if>
-
-
-
-<!-- About page content loading-->
-<c:if test="${userClickAbout == true}">
-<%@include file="./about.jsp" %> 
-
-</c:if>
-
-
-<!-- Contact page content loading-->
-<c:if test="${userClickContact == true}">
-<%@include file="./contact.jsp" %> 
-</c:if>
-
-<c:if test="${userClickcategoryProducts == true}">
-<%@include file="./listProducts.jsp" %> 
-</c:if>
-
-
-<c:if test="${userClickShowProduct == true}">
-<%@include file="./singleProduct.jsp" %> 
-</c:if>
-
-<c:if test="${userClickManageProducts == true}">
-<br>
-<%@include file="./manageProducts.jsp" %> 
-</c:if>
-
+ 
+   <div class="content">
+       <div class="container">
+           <div class="row">
+           <div class="col-xs-12"> 
+                 
+                 <div class="jumbotron">
+                      <h1>
+                           ${errorTitle} 
+                      </h1>
+                      <hr>
+                      
+                      <blockquote>
+                      
+                           {errorDescription}
+                           
+                      </blockquote>
+                 </div>
+                      
+           </div>
+           
+           </div>
+       
+       </div>
+   
+   </div> 
+   
+   
 <!-- Footer of page -->
 <%@include file="./footer.jsp" %> 
-
-<!-- DataTable plugin -->
-<script type="text/javascript" src="${js}/jquery.dataTables.js"></script>
-
-<!-- DataTable Bootstrap Script -->
-<script type="text/javascript" src="${js}/dataTables.bootstrap.js"></script>
-
-
-<!-- self coded js -->
-<script type="text/javascript" src="${js}/myapp.js"></script>
-
+ 
+ 
 </body>
-</html>

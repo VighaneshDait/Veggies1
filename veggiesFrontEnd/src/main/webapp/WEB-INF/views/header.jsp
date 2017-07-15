@@ -27,7 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="header-top">
 	 <div class="header-bottom">			
 				<div class="logo">
-					<h1><a href="index.html">Lighting</a></h1>					
+					<h1><a href="${contextRoot}/home">DNVeggies</a></h1>					
 				</div>
 			 <!---->		 
 			 <div class="top-nav">
@@ -41,13 +41,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 						</div>
 					</li>
+					<li class="grid" id="manageProducts"><a href="${contextRoot}/manage/product">Manage Product</a>
+					</li>
 					<li class="grid" id="contact"><a href="${contextRoot}/contact">Contact</a>
 					</li>
-					<li class="grid" id="about"><a href="${contextRoot}/about">About Us</a></li>
+					<!--  <li class="grid" id="about"><a href="${contextRoot}/about">About Us</a></li>-->
 					<!--<li class="grid"><a href="contact.html">Contact</a></li>-->					
 				</ul>				
 			 </div>
-			 <!---->
+			 <!----
 			 <div class="cart box_1">
 				 <a href="checkout.html">
 					<div class="total">
@@ -58,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 	<div class="clearfix"> </div>
 			 </div>
 			 <div class="clearfix"> </div>
-			 <!---->			 
+			 ---->			 
 			 </div>
 			<div class="clearfix"> </div>
 </div>

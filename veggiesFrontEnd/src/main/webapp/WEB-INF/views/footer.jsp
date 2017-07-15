@@ -2,7 +2,7 @@
 <div class="copywrite">
 	 <div class="container">
 		 <div class="copy">
-			 <p>© 2015 Lighting. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+			 <p>© 2015 Lighting. All Rights Reserved | Design by  <a href="https://www.facebook.com/vighanesh.dait" target="_blank">DNV LTD</a> </p>
 		 </div>
 		 <div class="social">							
 				<a href="#"><i class="facebook"></i></a>
